@@ -3,7 +3,9 @@ import React, { useEffect } from "react";
 const Home = (props) =>  {
 
   useEffect(() => {
-    fetch()
+    fetch('/api/home_feed')
+      .then(data => data.json)
+      .then(data => console.log(data));
   }, []);
 
   return (
