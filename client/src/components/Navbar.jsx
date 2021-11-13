@@ -6,7 +6,7 @@ import NavbarButtons from "./NavbarButtons";
 const Navbar = (props) => {
 
   return(
-    <nav style={{backgroundColor: Colours.black}} className="navbar navbar-dark navbar-expand-lg">
+    <nav style={{backgroundColor: Colours.black}} className="navbar navbar-dark navbar-expand-lg justify-content-between">
       <h3 style={{fontSize:40, color: Colours.white}}  className="navbar-brand m-3">Sound.io</h3>
       <NavbarButtons />
     </nav>
