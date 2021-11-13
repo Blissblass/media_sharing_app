@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Home = (props) =>  {
+
+  useEffect(() => {
+    fetch()
+  }, []);
+
   return (
-    <div className="bg-dark">
+    <div>
+      <h1 className="text-white">Home!</h1>
     </div>
   );
 }

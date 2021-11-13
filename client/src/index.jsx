@@ -4,16 +4,20 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
+import SignUp from './components/Signup';
 import './components/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-  <Router>
-    <Navbar />
-    <Routes>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/login" component={Login} />
-    </Routes>
-  </Router>,
+  <div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/signup" element={<SignUp />} />
+      </Routes>
+    </Router>
+  </div>,
   document.getElementById('root')
 );

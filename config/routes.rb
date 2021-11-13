@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   namespace :api do 
     get '/current_user', to: 'user#fetch_current_user'
+    get '/home_feed', to: 'post#fetch_home_feed'
   end
 end
