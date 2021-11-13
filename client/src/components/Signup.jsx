@@ -12,7 +12,7 @@ const SignUp = () => {
       </div>
 
       <div className="card container mt-4 me-4 p-4 w-50 float-end text-center shadow-lg">
-        <h1>Sign Up!</h1>
+        <h1>Sign Up</h1>
 
         <form>
           <input type="text" className="form-control form-control-lg mt-2 shadow-sm" placeholder="Username..." />  
