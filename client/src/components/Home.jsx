@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Feed from "./Feed";
 
 const Home = (props) =>  {
-
-  useEffect(() => {
-    fetch('/api/home_feed')
-      .then(data => data.json())
-      .then(data => console.log(data));
-  }, []);
-
   return (
     <div>
-      <h1 className="text-white">Home!</h1>
+      <Feed />
     </div>
   );
 }
