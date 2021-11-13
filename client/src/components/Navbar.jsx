@@ -11,7 +11,7 @@ const Navbar = (props) => {
         className="navbar navbar-dark navbar-expand-lg justify-content-between align-items-center shadow">
 
       <h3 style={{fontSize:40, color: Colours.white}}  className="navbar-brand m-3 ms-4">
-        <Link to="/" className="text-decoration-none text-white">Sound.io</Link>
+        <Link to="/" className="text-decoration-none text-white border-end  p-3">Sound.io</Link>
       </h3>
       <NavbarButtons />
     </nav>
