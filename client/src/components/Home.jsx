@@ -4,7 +4,7 @@ const Home = (props) =>  {
 
   useEffect(() => {
     fetch('/api/home_feed')
-      .then(data => data.json)
+      .then(data => data.json())
       .then(data => console.log(data));
   }, []);
 

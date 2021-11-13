@@ -1,4 +1,4 @@
-class Api::UserController < ApplicationController
+class Api::UsersController < ApplicationController
 
   def fetch_current_user
     @user = current_user || nil 
