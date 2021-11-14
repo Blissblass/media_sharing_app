@@ -4,7 +4,12 @@ import Notification from "./Notification";
 const Alerts = (props) => {
 
   return(
-    props.notifs ? props.notifs.map(notif => <Notification notif={notif} />) : null
+    props.notifs ? 
+      Object.keys(props.notifs).forEach(key => {
+        return <Notification head={key} notif={props.notifs[key][0]} />
+      })
+    : 
+      null
   )
 };
 

@@ -32,7 +32,7 @@ const SignUp = (props) => {
         console.log(data);
       } else {
         console.log('there!');
-        console.log(data);
+        props.setNotifs(data);
       }
     });
   };

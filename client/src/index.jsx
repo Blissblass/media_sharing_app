@@ -13,14 +13,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Index = () => {
 
-  const [notifs, setNotifs] = useState([]);
+  const [notifs, setNotifs] = useState(null);
 
   return(
     <div>
       <Router>
         <UserContext.Provider value={localStorage.getItem('user')}>
-          <Navbar notifs={notifs} />
-          <Alerts />
+          <Navbar />
+          <Alerts notifs={notifs} />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login setNotifs={setNotifs} />} />

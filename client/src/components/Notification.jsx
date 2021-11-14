@@ -4,7 +4,7 @@ const Notification = (props) => {
 
   return(
     <div class="alert alert-secondary" role="alert">
-      {props.notif}
+      {props.head + props.notif}
     </div>
   )
 };
