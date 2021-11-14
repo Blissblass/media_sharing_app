@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import UserContext from "./UserContext";
 
 const Navbar = (props) => {
-  const user = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   return(
     <nav style={{backgroundColor: Colours.black}} 
@@ -15,7 +15,7 @@ const Navbar = (props) => {
       <h3 style={{fontSize:40, color: Colours.white}}  className="navbar-brand m-3 ms-2 ">
         <Link to="/" className="text-decoration-none text-white border-end  p-3">Sound.io</Link>
       </h3>
-      <NavbarButtons />
+      <NavbarButtons user={user} setUser={setUser} />
     </nav>
   )
 };

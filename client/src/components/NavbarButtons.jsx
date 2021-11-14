@@ -3,20 +3,38 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 
-const NavbarButtons = () => {
+const NavbarButtons = (props) => {
 
+  const handleLogout = () => { 
+    localStorage.removeItem('user');
+    props.setUser(null);
+  };
+ 
   return(
-    <div className="me-3">
-      <Link to="/login">
-        <Button type="button" variant="outline-primary" size="lg" className="me-5 ms-5">
-          Log in
-        </Button>
-      </Link>
+    props.user ? 
+      <div className="me-3">
+        <Link to={`/user/${props.user.id}`}>
+          <Button type="button" variant="outline-primary" size="lg" className="me-5 ms-5">
+            {props.user.username}
+          </Button>
+        </Link>
 
-      <Link to="/signup">
-        <Button type="button" variant="outline-primary" size="lg">Sign Up</Button>
-      </Link>
-    </div>
+        
+        <Button type="button" variant="outline-primary" size="lg" onClick={handleLogout}>Log Out</Button>
+      </div>
+    :
+      <div className="me-3">
+        <Link to="/login">
+          <Button type="button" variant="outline-primary" size="lg" className="me-5 ms-5">
+            Log in
+          </Button>
+        </Link>
+
+        <Link to="/signup">
+          <Button type="button" variant="outline-primary" size="lg">Sign Up</Button>
+        </Link>
+      </div>
+
   )
 };
 

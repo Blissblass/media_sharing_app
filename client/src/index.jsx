@@ -14,15 +14,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Index = () => {
 
   const [notifs, setNotifs] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
   useEffect(() => {
-    console.log(localStorage.getItem('user'));
-  }, []);
+    console.log(user);
+  }, [user]);
 
   return(
     <div>
       <Router>
-        <UserContext.Provider value={localStorage.getItem('user')}>
+        <UserContext.Provider value={{user, setUser}}>
           <Navbar />
           <Alerts notifs={notifs} setNotifs={setNotifs} />
           <Routes>
