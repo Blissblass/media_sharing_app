@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserContext from './components/UserContext';
@@ -15,12 +15,16 @@ const Index = () => {
 
   const [notifs, setNotifs] = useState(null);
 
+  useEffect(() => {
+    console.log(localStorage.getItem('user'));
+  }, []);
+
   return(
     <div>
       <Router>
         <UserContext.Provider value={localStorage.getItem('user')}>
           <Navbar />
-          <Alerts notifs={notifs} />
+          <Alerts notifs={notifs} setNotifs={setNotifs} />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login setNotifs={setNotifs} />} />

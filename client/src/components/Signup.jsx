@@ -25,14 +25,13 @@ const SignUp = (props) => {
       body: JSON.stringify(data)
     })
     .then(data => data.json())
-    .then(data =>{
+    .then(data => {
       if(data.user) {
-        localStorage.setItem('user', data);
-        console.log('here!');
-        console.log(data);
+        props.setNotifs(null);
+        localStorage.setItem('user', JSON.stringify(data.user));
       } else {
-        console.log('there!');
-        props.setNotifs(data);
+        props.setNotifs(null);
+        props.setNotifs(data.errors);
       }
     });
   };

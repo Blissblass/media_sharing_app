@@ -23,9 +23,16 @@ const Login = (props) => {
       }),
       body: JSON.stringify(data)
     })
-      .catch(err => console.log(err))
       .then(data => data.json())
-      .then(data => console.log(data));
+      .then(data => {
+        if(data.username) {
+          props.setNotifs(null);
+          localStorage.setItem('user', JSON.stringify(data));
+        } else {
+          props.setNotifs(null);
+          props.setNotifs({ 'Error:': [data.error] });
+        }
+      });
   };
 
   return(

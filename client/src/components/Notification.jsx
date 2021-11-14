@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { Alert } from "react-bootstrap";
 
 const Notification = (props) => {
+  const [show, setShow] = useState(true);
 
   return(
-    <div class="alert alert-secondary" role="alert">
-      {props.head + props.notif}
-    </div>
+    <Alert className="position-relative container"  show={show} variant="secondary" onClose={() => setShow(false) } dismissible>
+      <Alert.Heading>{`${props.head} ${props.notif}`}</Alert.Heading>
+    </Alert>
   )
 };
 

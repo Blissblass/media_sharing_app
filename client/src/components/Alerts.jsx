@@ -5,9 +5,11 @@ const Alerts = (props) => {
 
   return(
     props.notifs ? 
-      Object.keys(props.notifs).forEach(key => {
-        return <Notification head={key} notif={props.notifs[key][0]} />
-      })
+      <div className="position-absolute top-50 ms-5">
+        {Object.keys(props.notifs).map(key => (
+          <Notification key={key} head={key} notif={props.notifs[key][0]} />
+        ))}
+      </div>
     : 
       null
   )

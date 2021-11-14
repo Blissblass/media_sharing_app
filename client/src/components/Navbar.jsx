@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import './Navbar.css'
 import Colours from "./Colours";
 import NavbarButtons from "./NavbarButtons";
@@ -7,10 +7,6 @@ import UserContext from "./UserContext";
 
 const Navbar = (props) => {
   const user = useContext(UserContext);
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
 
   return(
     <nav style={{backgroundColor: Colours.black}} 
