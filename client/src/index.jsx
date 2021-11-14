@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserContext from './components/UserContext';
@@ -15,7 +15,7 @@ const Index = () => {
   return(
     <div>
       <Router>
-        <UserContext.Provider value={localStorage.getItem('currUser')}>
+        <UserContext.Provider value={localStorage.getItem('user')}>
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />

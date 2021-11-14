@@ -10,7 +10,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
     console.log(user);
-  }, []);
+  }, [user]);
 
   return(
     <nav style={{backgroundColor: Colours.black}} 
