@@ -8,7 +8,7 @@ const SignUp = () => {
 
     const inputs = e.currentTarget;
     const data = {
-      "registration": {
+      user: {
         username: inputs[0].value,
         email: inputs[1].value,
         password: inputs[2].value,
@@ -17,9 +17,11 @@ const SignUp = () => {
     }
 
     fetch('/users', { 
-      'method': 'POST',
-      mode: 'cors',
-      headers: new Headers({"content-type": 'application/json'}),
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }),
       body: JSON.stringify(data)
     })
     .catch(err => console.log(err))
