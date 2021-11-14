@@ -14,7 +14,7 @@ const Feed = () => {
   return(
     <div className="mt-3">
       <Stack gap={4}>
-        { songs.map(song => <Song key={song.id} song={song}/>) }
+        { songs.length > 0 ? songs.map(song => <Song key={song.id} song={song}/>) : <h1 className="text-center text-white mt-4">No songs available.</h1> }
       </Stack>
     </div>
   )
