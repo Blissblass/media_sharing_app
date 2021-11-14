@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
+import UserContext from "./UserContext";
+
 
 const SignUp = (props) => {
+
+  const { setUser } = useContext(UserContext);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,9 +31,10 @@ const SignUp = (props) => {
     })
     .then(data => data.json())
     .then(data => {
-      if(data.user) {
+      if(data.username) {
         props.setNotifs(null);
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('user', JSON.stringify(data));
+        setUser(data);
       } else {
         props.setNotifs(null);
         props.setNotifs(data.errors);
