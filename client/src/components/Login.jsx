@@ -12,7 +12,6 @@ const Login = () => {
         username: inputs[0].value,
         email: inputs[1].value,
         password: inputs[2].value,
-        password_confirmation: inputs[2].value,
       }
     }
 
@@ -24,9 +23,6 @@ const Login = () => {
       }),
       body: JSON.stringify(data)
     })
-    .catch(err => console.log(err))
-    .then(data => data.json())
-    .then(data => console.log(data))
   };
 
   return(
@@ -43,7 +39,7 @@ const Login = () => {
           <input type="text" className="form-control form-control-lg mt-2 shadow-sm" placeholder="Username..." />  
           <input type="email" className="form-control form-control-lg mt-3 shadow-sm" placeholder="Email..." />  
           <input type="password" className="form-control form-control-lg mt-3 shadow-sm" placeholder="Password..." />  
-          <Button type="submit" variant="outline-primary" size="lg" className="me-5 ms-5 mt-4 w-50">Log In!</Button>
+          <Button type="submit" variant="outline-primary" size="lg" className="me-5 ms-5 mt-4 w-50">Sign Up!</Button>
         </form>
       </div>
   </div>
