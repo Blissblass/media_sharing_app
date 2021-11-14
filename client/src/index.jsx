@@ -16,7 +16,7 @@ const Index = () => {
   useEffect(() => {
     fetch('/api/current_user')
       .then(data => data.json())
-      .then(data => data.type === 'success' ? setUser(data) : null);
+      .then(data => console.log(data));
   }, []);
 
   return(

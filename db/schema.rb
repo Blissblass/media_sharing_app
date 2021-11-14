@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_162620) do
+ActiveRecord::Schema.define(version: 2021_11_14_130213) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2021_11_12_162620) do
     t.integer "commenter_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["commenter_id"], name: "index_comments_on_commenter_id"
+  end
+
+  create_table "jwt_deny_lists", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jti"], name: "index_jwt_deny_lists_on_jti"
   end
 
   create_table "likes", force: :cascade do |t|
