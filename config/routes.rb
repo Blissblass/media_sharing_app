@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     get '/current_user', to: 'users#fetch_current_user'
     get '/home_feed', to: 'songs#fetch_home_feed'
   end
+  
 end
