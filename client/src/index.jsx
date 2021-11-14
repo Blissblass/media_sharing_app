@@ -8,16 +8,24 @@ import SignUp from './components/Signup';
 import './components/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const currUserContext = React.createContext({});
+
+const Index = () => {
+  return(
+    <div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<SignUp />} />
+        </Routes>
+      </Router>
+    </div>
+  )
+}
+
 ReactDOM.render(
-  <div>
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<SignUp />} />
-      </Routes>
-    </Router>
-  </div>,
+  <Index />,
   document.getElementById('root')
 );
