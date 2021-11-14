@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-const SignUp = () => {
+const SignUp = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
