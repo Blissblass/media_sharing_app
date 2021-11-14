@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import './Navbar.css'
 import Colours from "./Colours";
 import NavbarButtons from "./NavbarButtons";
 import { Link } from "react-router-dom";
+import UserContext from "./UserContext";
 
 const Navbar = (props) => {
+  const user = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
 
   return(
     <nav style={{backgroundColor: Colours.black}} 

@@ -1,6 +1,7 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UserContext from './components/UserContext';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -10,26 +11,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Index = () => {
-  const UserContext = createContext({username: null, email: null});
-  const [user, setUser] = useState(null);
-  
-  useEffect(() => {
-    fetch('/api/current_user')
-      .then(data => data.json())
-      .then(data => data.type === 'success' ? setUser(data) : null);
-  }, []);
 
   return(
     <div>
       <Router>
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={localStorage.getItem('currUser')}>
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />
           </Routes>
-          </UserContext.Provider>
+        </UserContext.Provider>
       </Router>
     </div>
   )
