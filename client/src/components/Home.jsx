@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Feed from "./Feed";
-import CreateButton from './CreateButton';
+import NewSongPopup from "./NewSongPopup";
 
 const Home = (props) =>  {
   const [songs, setSongs] = useState([]);
 
   return (
     <div>
-      <CreateButton />
+      <NewSongPopup />
       <Feed songs={songs} setSongs={setSongs} />
     </div>
   );
