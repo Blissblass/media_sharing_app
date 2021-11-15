@@ -6,7 +6,9 @@ import { Navigate } from 'react-router-dom';
 const AuthRoute = (props) => {
   const { user } = useContext(UserContext);
 
-  user ? <Navigate to="/" /> : <props.element />
+  return(
+    user ? <Navigate to="/" /> : <props.element setNotifs={props.setNotifs}  />
+  )
 };
 
 export default AuthRoute;
