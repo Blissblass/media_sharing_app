@@ -9,6 +9,7 @@ import Login from './components/Login';
 import SignUp from './components/Signup';
 import ProtectedRoute from './components/ProtectedRoute';
 import AuthRoute from './components/AuthRoute';
+import UserProfile from './components/UserProfile';
 import './components/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,6 +32,7 @@ const Index = () => {
             <Route exact path="/" element={<ProtectedRoute element={Home} />} />
             <Route exact path="/login" element={<AuthRoute element={Login} setNotifs={setNotifs} />} />
             <Route exact path="/signup" element={<AuthRoute element={SignUp} setNotifs={setNotifs} />} />
+            <Route exact path="/user/:id" element={<ProtectedRoute element={UserProfile} />} />
           </Routes>
         </UserContext.Provider>
       </Router>
