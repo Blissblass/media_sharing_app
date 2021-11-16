@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :api do 
-    get '/current_user', to: 'users#fetch_current_user'
+    post '/already_liked', to: 'songs#song_already_liked?'
     get '/home_feed', to: 'songs#fetch_home_feed'
   end
   

@@ -18,10 +18,6 @@ const Index = () => {
 
   const [notifs, setNotifs] = useState(null);
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
   
   return(
     <div>

@@ -13,4 +13,10 @@ class Api::SongsController < ApplicationController
     render json: @songs
   end
 
+  def song_already_liked?
+    song = Song.find(params[:id])
+    @liked = song.likes.where(liker_id: params[:liker_id])
+    render json: @liked unless @liked.nil?
+  end
+
 end

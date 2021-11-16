@@ -8,7 +8,7 @@ const Song = (props) => {
     <div className="card container w-50 mt-4" style={{backgroundColor: Colours.white}}>
       <div className="p-4" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>      
         <div>
-          <SongInfo title={props.song.title} user={props.song.user} likes={props.song.likes} />
+          <SongInfo song={props.song} title={props.song.title} user={props.song.user} likes={props.song.likes} />
         </div>
         <audio controls> 
           <source src={props.song.media} /> 
