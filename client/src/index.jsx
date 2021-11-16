@@ -22,6 +22,7 @@ const Index = () => {
   useEffect(() => {
     console.log(user);
   }, [user]);
+  
   return(
     <div>
       <Router>

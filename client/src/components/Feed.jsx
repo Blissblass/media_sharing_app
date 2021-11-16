@@ -9,7 +9,7 @@ const Feed = (props) => {
     fetch('/api/home_feed')
       .then(data => data.json())
       .then(data => props.setSongs(data));
-  }, [props]);
+  }, []);
 
   return(
     <div className="mt-3">
