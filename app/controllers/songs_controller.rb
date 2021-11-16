@@ -6,6 +6,8 @@ class SongsController < ApplicationController
 
   def create 
     @song = Song.new(song_params)
+    return unless @song.media.content_type.starts_with?("audio")
+    
     if @song.save
       render json: @song
     else
