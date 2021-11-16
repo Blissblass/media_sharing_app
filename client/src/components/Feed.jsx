@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import Song from './Song';
 import { Stack } from 'react-bootstrap';
 
 const Feed = (props) => {
   
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetch('/api/home_feed')
       .then(data => data.json())
       .then(data => props.setSongs(data));
