@@ -5,7 +5,7 @@ import { FaRegThumbsUp} from 'react-icons/fa';
 const SongInfo = (props) => {
   const [likes, setLikes] = useState(props.likes);
   const [liked, setLiked] = useState(false);
-  const [likeData, setLikeData] = useState({poopo: 'haha'});
+  const [likeData, setLikeData] = useState(null);
 
   useEffect(() => {
     fetch('/api/already_liked', {
@@ -20,11 +20,14 @@ const SongInfo = (props) => {
       .then(data => {
         if(data.length > 0) {
           setLiked(true);
-          setLikeData(data);
-          console.log(likeData);
+          setLikeData(data[0]);
         }
       });
   }, []);
+
+  useEffect(() => {
+    console.log(likeData);
+  }, [likeData]);
   
   const handleLike = () => {
     const data = {
@@ -37,21 +40,23 @@ const SongInfo = (props) => {
 
     if(liked) {
 
-      fetch()
+      fetch(`/likes/${likeData.id}`, {
+        method: 'DELETE'
+      })
+      setLiked(false);
+      setLikes(old => old -= 1);
 
     } else {
-    fetch('/likes', {
-      method: 'POST',      
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }),
-      body: JSON.stringify(data)
-    })
-      .then(data => {
+        fetch('/likes', {
+          method: 'POST',      
+          headers: new Headers({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }),
+          body: JSON.stringify(data)
+        })
         setLiked(true);
-        setLikes(old => old += 1)
-      })
+        setLikes(old => old += 1);
     }
   };
 
