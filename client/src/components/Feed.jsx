@@ -4,6 +4,7 @@ import { Stack, Spinner } from 'react-bootstrap';
 
 const Feed = (props) => {
   const [loading, setLoading] = useState(true);
+  // Set loading initially to true, which gets set to false in SongInfo.jsx
 
   useLayoutEffect(() => {
     const fetchData = async () => { 
