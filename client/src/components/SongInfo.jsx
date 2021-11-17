@@ -8,26 +8,27 @@ const SongInfo = (props) => {
   const [likeData, setLikeData] = useState(null);
 
   useEffect(() => {
-    fetch('/api/already_liked', {
-      method: 'POST',      
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }),
-      body: JSON.stringify({id: props.song.id, liker_id: props.user.id})
-    })
+    const fetchLiked = async () => { 
+        fetch('/api/already_liked', {
+        method: 'POST',      
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }),
+        body: JSON.stringify({id: props.song.id, liker_id: props.user.id})
+      })      
       .then(data => data.json())
       .then(data => {
         if(data.length > 0) {
           setLiked(true);
           setLikeData(data[0]);
+          props.setLoading(false);
         }
       });
-  }, []);
+    }
 
-  useEffect(() => {
-    console.log(likeData);
-  }, [likeData]);
+    fetchLiked()
+  }, []);
   
   const handleLike = () => {
     const data = {
