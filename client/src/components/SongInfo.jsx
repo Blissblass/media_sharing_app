@@ -65,7 +65,8 @@ const SongInfo = (props) => {
     <div className="px-2" style={{display: 'flex', alignItems: 'center'}}>
       <div style={{display:'flex', alignItems:'center', justifyContent: 'space-between'}}>
         <h2 className="mb-1 me-2" >{likes}</h2>
-        <FaRegThumbsUp className="mb-2 me-5" style={{fontSize: 40, cursor: "pointer", color: liked ? "#087cfc" : "#302c34"}} 
+        <FaRegThumbsUp className="mb-2" 
+          style={{fontSize: 40, cursor: "pointer", color: liked ? "#087cfc" : "#302c34", marginRight: 60}} 
           onClick={handleLike} />
       </div>
       <div>
