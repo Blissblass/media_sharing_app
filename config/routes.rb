@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :api do 
     post '/already_liked', to: 'songs#song_already_liked?'
     get '/home_feed', to: 'songs#fetch_home_feed'
+    get '/song_query', to: 'songs#song_query'
   end
   
 end

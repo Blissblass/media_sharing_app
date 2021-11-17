@@ -19,4 +19,9 @@ class Api::SongsController < ApplicationController
     render json: @liked unless @liked.nil?
   end
 
+  def song_query
+    @song = Song.where("title LIKE ?", "%#{params[:query]}%")
+    render json: @song
+  end
+
 end

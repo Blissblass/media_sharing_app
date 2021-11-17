@@ -10,6 +10,8 @@ const Song = (props) => {
     fetch(`/songs/${props.song.id}`, {
       method: 'DELETE'
     })
+
+    props.setPosts(oldPosts => oldPosts.filter(post => post.id !== props.song.id))
   };
 
   return(
@@ -19,7 +21,7 @@ const Song = (props) => {
           <SongInfo song={props.song} title={props.song.title} user={props.song.user} likes={props.song.likes} 
             setLoading={props.setLoading} />
         </div>
-        <audio controls style={{width: 650}} className="border border-danger"> 
+        <audio controls style={{width: 650}}> 
           <source src={props.song.media} /> 
         </audio>
         <BiTrash style={{fontSize: 40, cursor: 'pointer'}} onClick={handleDelete} />
