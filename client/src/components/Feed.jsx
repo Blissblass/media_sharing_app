@@ -22,7 +22,7 @@ const Feed = (props) => {
   return(
     <div className="mt-3">
       <Spinner className="mx-auto mt-5" style={{display: loading ? "block" : "none", width: 100, height: 100}} animation="grow" variant="primary"  />
-      <Stack style={{visibility: loading ? "hidden" : "visible"}} gap={4}>
+      <Stack className="mb-4" style={{visibility: loading ? "hidden" : "visible"}} gap={4}>
         { props.songs.length > 0 ? 
 
           props.songs.map(song => <Song key={song.id} song={song} setLoading={setLoading} />) 
