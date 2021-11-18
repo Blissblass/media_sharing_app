@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
 import UserContext from "./UserContext";
 
-
 const PopupBox = (props) => {
   const [file, setFile] = useState(null);
   const [disabled, setDisabled] = useState(false);
@@ -33,6 +32,7 @@ const PopupBox = (props) => {
     if (!file || !user) return;
     e.preventDefault();
     const title = e.currentTarget[0].value;
+    const mediaLink = URL.createObjectURL(file);
 
     const formData = new FormData();
     formData.append('song[media]', file);
@@ -43,8 +43,14 @@ const PopupBox = (props) => {
       method: 'POST',
       body: formData 
     })
-
-    props.handleSet();
+      .then(data => data.json())
+      .then(songData => {
+        songData.user = user;
+        songData.likes = 0;
+        songData.media = mediaLink;
+        props.setSongs(oldSongs => [songData, ...oldSongs]);
+        props.handleSet();
+      });
   }
 
   return(
