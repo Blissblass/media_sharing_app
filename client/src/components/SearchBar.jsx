@@ -4,19 +4,20 @@ import { BiSearch } from 'react-icons/bi';
 
 const SearchBar = (props) => {
   const [queryStr, setQueryStr] = useState("");
+  const setSongs = props.setSongs
 
   useEffect(() => {
     if(queryStr.length > 1) {
       const songQuery = async () => {
         fetch(`/api/song_query/?query=${queryStr}`)
           .then(data => data.json())
-          .then(data => console.log(data))
+          .then(data => setSongs(data))
       } 
 
       songQuery();
     }
     
-  }, [queryStr]);
+  }, [queryStr, setSongs]);
 
   return(
     <div className="card container mt-4" style={{width: 900, visibility: props.loading ? "hidden" : "visible"}} >

@@ -10,7 +10,7 @@ const Home = (props) =>  {
   return (
     <div>
       <NewSongPopup setSongs={setSongs} />
-      <SearchBar loading={loading} />
+      <SearchBar loading={loading} setSongs={setSongs} />
       <Feed loading={loading} setLoading={setLoading} songs={songs} setSongs={setSongs} />
     </div>
   );

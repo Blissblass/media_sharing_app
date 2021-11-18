@@ -20,8 +20,20 @@ class Api::SongsController < ApplicationController
   end
 
   def song_query
-    @song = Song.where("title LIKE ?", "%#{params[:query]}%")
-    render json: @song
+    return fetch_home_feed if params[:query].length < 3
+
+    songs_fetch = Song.where("title LIKE ?", "%#{params[:query]}%").with_attached_media.includes(:user).order(created_at: :desc)
+    @songs = songs_fetch.map do |song|
+      song.attributes.merge(
+        'media' => url_for(song.media),
+        'user' => song.user,
+        'likes' => song.likes.count
+      )
+    end
+    
+    render json: @songs
   end
+  
+  private
 
 end
