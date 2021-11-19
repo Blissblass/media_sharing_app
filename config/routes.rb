@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post '/already_liked', to: 'songs#song_already_liked?'
     get '/home_feed', to: 'songs#fetch_home_feed'
     get '/song_query', to: 'songs#song_query'
+    get '/fetch_user/:id', to: 'users#fetch_user_profile'
   end
   
 end

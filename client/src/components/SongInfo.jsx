@@ -48,16 +48,18 @@ const SongInfo = (props) => {
       setLikes(old => old -= 1);
 
     } else {
-        fetch('/likes', {
-          method: 'POST',      
-          headers: new Headers({
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          }),
-          body: JSON.stringify(data)
-        })
-        setLiked(true);
-        setLikes(old => old += 1);
+      fetch('/likes', {
+        method: 'POST',      
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }),
+        body: JSON.stringify(data)
+      })
+      .then(data => data.json())
+      .then(data => setLikeData(data));
+      setLiked(true);
+      setLikes(old => old += 1);
     }
   };
 

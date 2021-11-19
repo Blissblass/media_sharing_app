@@ -20,7 +20,7 @@ const SearchBar = (props) => {
   }, [queryStr, setSongs]);
 
   return(
-    <div className="card container mt-4" style={{width: 900, visibility: props.loading ? "hidden" : "visible"}} >
+    <div className="card container mt-4" style={{width: 900, display: props.loading ? "none" : "block"}} >
       <div className="p-4 d-flex align-items-center" >
         <input type="text" className="form-control form-control-lg me-3" placeholder="Search for songs..." 
           value={queryStr} onChange={(e) => setQueryStr(e.target.value)}  />
