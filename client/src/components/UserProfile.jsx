@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
+import UserInfo from './UserInfo';
 
 
 const UserProfile = (props) => {
@@ -28,6 +29,7 @@ const UserProfile = (props) => {
         <div className="text-center card container mt-2 p-4">
           <h1 className="mb-2">You're on {profUser.username}'s Profile!</h1>
         </div>  
+        <UserInfo />
       </div>
   )
 };
