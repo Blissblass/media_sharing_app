@@ -8,12 +8,13 @@ const UserProfile = (props) => {
   const { id } = useParams()
   const [profUser, setProfUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [profPosts, setProfPosts] = useState([]);
 
   useEffect(() => {
     fetch(`/api/fetch_user/${id}`)
     .then(data => data.json())
     .then(data => {
-      setProfUser(data)
+      setProfUser(data.user)
       setLoading(false);
     });
   }, [id]);
