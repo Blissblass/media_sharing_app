@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Colours from './Colours';
 import SongInfo from './SongInfo';
 import { BiTrash } from 'react-icons/bi';
+import UserContext from "./UserContext";
 
 
 const Song = (props) => {
+  const { user } = useContext(UserContext); 
 
   const handleDelete = () => {
     fetch(`/songs/${props.song.id}`, {
@@ -24,7 +26,12 @@ const Song = (props) => {
         <audio controls style={{width: 650}}> 
           <source src={props.song.media} /> 
         </audio>
-        <BiTrash style={{fontSize: 40, cursor: 'pointer'}} onClick={handleDelete} />
+
+        { user.id === props.song.user.id ? 
+          <BiTrash style={{fontSize: 40, cursor: 'pointer'}} onClick={handleDelete} />
+        :
+          null
+        }
       </div>
     </div>
   )
