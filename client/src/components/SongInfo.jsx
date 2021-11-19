@@ -15,15 +15,16 @@ const SongInfo = (props) => {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }),
-        body: JSON.stringify({id: props.song.id, liker_id: props.user.id})
+        body: JSON.stringify({id: props.song.id, liker_id: props.currUser.id})
       })      
       .then(data => data.json())
       .then(data => {
         if(data.length > 0) {
           setLiked(true);
           setLikeData(data[0]);
-          props.setLoading(false);
+          console.log(data);
         }
+        props.setLoading(false);
       });
     }
 
@@ -34,7 +35,7 @@ const SongInfo = (props) => {
     const data = {
       like: {
         type: 'Song',
-        liker_id: props.user.id,
+        liker_id: props.currUser.id,
         id: props.song.id
       }
     }

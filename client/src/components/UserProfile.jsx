@@ -19,12 +19,16 @@ const UserProfile = (props) => {
 
   return(
       loading ? 
+
         <Spinner className="mx-auto mt-5" style={{display: loading ? "block" : "none", width: 100, height: 100}} 
           animation="grow" variant="primary"  />
       :
-      <div className="text-center card container mt-2">
-        <h1>You're on {profUser.username}'s Profile!</h1>
-      </div> 
+
+      <div>
+        <div className="text-center card container mt-2 p-4">
+          <h1 className="mb-2">You're on {profUser.username}'s Profile!</h1>
+        </div>  
+      </div>
   )
 };
 

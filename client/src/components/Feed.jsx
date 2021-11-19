@@ -10,7 +10,6 @@ const Feed = (props) => {
         .then(data => data.json())
         .then(data => {
           props.setSongs(data);
-          console.log(data);
         });
     }
 
