@@ -1,16 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import UserProfSong from "./UserProfSong";
+import Song from './Song';
+import UserContext from "./UserContext";
+
 
 const UserLikes = (props) => {
-
-  useEffect(() => {
-    console.log(props.likedSongs);
-  }, [props.likedSongs]);
+  const { user } = useContext(UserContext);
 
   return(
     <div className="card container mt-4 p-4 w-75">
       <h1>User likes!</h1>
-      { props.likedSongs.map(song => <UserProfSong song={song} />) }
+      { props.likedSongs.map(song => <Song song={song} user={user} setLoading={props.setLoading} setPosts={props.setLiked} />) }
     </div>
   )
 };
