@@ -5,13 +5,17 @@ class Api::UsersController < ApplicationController
 
     @liked_songs = @user.liked_songs.map do |song|
       song.attributes.merge(
-        'media' => url_for(song.media)
+        'media' => url_for(song.media), 
+        'user' => song.user,
+        'likes' => song.likes.count
       )
     end
 
     @songs = @user.songs.map do |song|
       song.attributes.merge(
-        'media' => url_for(song.media)
+        'media' => url_for(song.media), 
+        'user' => song.user,
+        'likes' => song.likes.count
       )
     end
 

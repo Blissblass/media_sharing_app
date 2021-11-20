@@ -34,7 +34,7 @@ const UserProfile = (props) => {
           <h1 className="mb-2">{profUser.username}'s profile!</h1>
           <small className="opacity-75">Joined {new Date(profUser.created_at).toDateString()}</small>
         </div>  
-        <UserInfo likedSongs={profLikes} createdSongs={profSongs}  />
+        <UserInfo likedSongs={profLikes} createdSongs={profSongs} setLoading={setLoading}  />
       </div>
   )
 };

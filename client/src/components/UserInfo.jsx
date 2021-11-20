@@ -6,8 +6,8 @@ const UserInfo = (props) => {
 
   return(
     <div>
-      <UserLikes likedSongs={props.likedSongs} />
-      <UserPosts createdSongs={props.createdSongs} />
+      <UserPosts createdSongs={props.createdSongs} setLoading={props.setLoading} />
+      <UserLikes likedSongs={props.likedSongs} setLoading={props.setLoading} />
     </div>
   )
 };
