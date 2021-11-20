@@ -7,16 +7,18 @@ import UserInfo from './UserInfo';
 const UserProfile = (props) => {
   const { id } = useParams()
   const [profUser, setProfUser] = useState({});
+  const [profLikes, setProfLikes] = useState([]);
+  const [profSongs, setProfSongs] = useState([])
   const [loading, setLoading] = useState(true);
-  const [profPosts, setProfPosts] = useState([]);
 
   useEffect(() => {
     fetch(`/api/fetch_user/${id}`)
     .then(data => data.json())
     .then(data => {
       setProfUser(data.user)
+      setProfLikes(data.likes)
+      setProfSongs(data.songs)
       setLoading(false);
-      console.log(data);
     });
   }, [id]);
 
@@ -32,7 +34,7 @@ const UserProfile = (props) => {
           <h1 className="mb-2">{profUser.username}'s profile!</h1>
           <small className="opacity-75">Joined {new Date(profUser.created_at).toDateString()}</small>
         </div>  
-        <UserInfo />
+        <UserInfo likedSongs={profLikes} createdSongs={profSongs}  />
       </div>
   )
 };
