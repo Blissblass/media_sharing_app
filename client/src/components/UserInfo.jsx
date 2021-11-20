@@ -1,9 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
+import UserLikes from "./UserLikes";
+import UserPosts from "./UserPosts";
 
 const UserInfo = () => {
 
   return(
-    <h1>User Info!</h1>
+    <div>
+      <h1>User Info!</h1>
+      <UserLikes />
+      <UserPosts />
+    </div>
   )
 };
 

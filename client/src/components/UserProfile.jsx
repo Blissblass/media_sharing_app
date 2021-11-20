@@ -16,6 +16,7 @@ const UserProfile = (props) => {
     .then(data => {
       setProfUser(data.user)
       setLoading(false);
+      console.log(data);
     });
   }, [id]);
 
@@ -28,7 +29,8 @@ const UserProfile = (props) => {
 
       <div>
         <div className="text-center card container mt-2 p-4">
-          <h1 className="mb-2">You're on {profUser.username}'s Profile!</h1>
+          <h1 className="mb-2">{profUser.username}'s profile!</h1>
+          <small className="opacity-75">Joined {new Date(profUser.created_at).toDateString()}</small>
         </div>  
         <UserInfo />
       </div>
