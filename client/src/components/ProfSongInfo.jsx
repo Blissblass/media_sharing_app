@@ -47,7 +47,6 @@ const SongInfo = (props) => {
       })
       setLiked(false);
       setLikes(old => old -= 1);
-
     } else {
       fetch('/likes', {
         method: 'POST',      

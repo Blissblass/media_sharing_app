@@ -10,7 +10,7 @@ const UserPosts = (props) => {
     <div className="card container mt-4 p-4 w-75">
       <h1>User posts!</h1>
       { props.createdSongs.map(song => <UserProfSong song={song} user={user}
-        key={song.id} setLoading={props.setLoading} setPosts={props.setCreated} removePostOnDislike />) }
+        key={song.id} setLoading={props.setLoading} setPosts={props.setCreated} />) }
     </div>
   )
 };
