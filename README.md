@@ -1,24 +1,22 @@
-# README
+# Welcome!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a song sharing app built with React as the frontend client and Ruby On Rails for the backend!
 
-Things you may want to cover:
+It uses polymorphic associations to handle likes and uses devise for authentication using JSON calls between the frontend and backend.
+This project also uses instantenous flash messages that clearly communicate errors that might happen during login/signup to the user.
 
-* Ruby version
+This project uses these npm packages and RoR gems:
+ 1. NPM Packages:
+  * React (Obviously)
+  * Bootstrap
+  * React-Bootstrap to fix some code conflicts
+  * React Router and React Router Dom to create a SPA (Single Page Application)
+  * React Icons to make displaying FA icons and alike easier
 
-* System dependencies
+ 2. Ruby On Rails Gems:
+  * Devise to handle user authentication
+  * Sqlite3 for development, will switch to Psql in the future
 
-* Configuration
+This project also uses ActiveStorage to handle uploading and fetching media.  
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
