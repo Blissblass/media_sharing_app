@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_013136) do
+ActiveRecord::Schema.define(version: 2021_11_21_020548) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_11_21_013136) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "liker_id"
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
+    t.index ["liker_id", "likeable_id", "likeable_type"], name: "index_likes_on_liker_id_and_likeable_id_and_likeable_type", unique: true
     t.index ["liker_id"], name: "index_likes_on_liker_id"
   end
 
