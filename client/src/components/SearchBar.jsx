@@ -7,15 +7,17 @@ const SearchBar = (props) => {
   const setSongs = props.setSongs
 
   useEffect(() => {
-    if(queryStr.length > 1) {
-      const songQuery = async () => {
-        fetch(`/api/song_query/?query=${queryStr}`)
+    if(queryStr.length > 2) {
+      fetch(`/api/song_query/?query=${queryStr}`)
+        .then(data => data.json())
+        .then(data => setSongs(data))
+      } else {
+        fetch('/api/home_feed')
           .then(data => data.json())
-          .then(data => setSongs(data))
-      } 
-
-      songQuery();
-    }
+          .then(data => {
+            setSongs(data);
+          })
+      }
     
   }, [queryStr, setSongs]);
 
