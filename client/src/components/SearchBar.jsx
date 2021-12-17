@@ -7,7 +7,7 @@ const SearchBar = (props) => {
   const setSongs = props.setSongs
 
   useEffect(() => {
-    if(queryStr.length > 2) {
+    if(queryStr.length) {
       fetch(`/api/song_query/?query=${queryStr}`)
         .then(data => data.json())
         .then(data => setSongs(data))
