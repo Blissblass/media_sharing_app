@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :songs       
   has_many :likes, class_name: 'Like', foreign_key: 'liker_id'
   has_many :liked_songs, :through => :likes, :source => :likeable, :source_type => 'Song'
+  has_many :follows, class_name: 'Like', as: :likeable
 end

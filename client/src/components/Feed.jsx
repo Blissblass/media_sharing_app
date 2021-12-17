@@ -3,14 +3,13 @@ import Song from './Song';
 import { Stack, Spinner } from 'react-bootstrap';
 
 const Feed = (props) => {
+  
   useLayoutEffect(() => {
-    const setSongs = { props };
-
     const fetchData = async () => { 
       fetch('/api/home_feed')
         .then(data => data.json())
         .then(data => {
-          setSongs(data);
+          props.setSongs(data);
         });
     }
     fetchData();
