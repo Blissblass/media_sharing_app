@@ -14,7 +14,7 @@ const UserProfile = (props) => {
   const [profLikes, setProfLikes] = useState([]);
   const [profSongs, setProfSongs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [following, setFollowing] = useState(false);
+  const [following, setFollowing] = useState({status: false, id: null});
 
   useEffect(() => {
     fetch(`/api/fetch_user/${id}`)
@@ -33,14 +33,46 @@ const UserProfile = (props) => {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }),
-      body: JSON.stringify({followee_id: id, follower_id: user})
+      body: JSON.stringify({followee_id: id, follower_id: user.id})
     })
       .then(data => data.json())
-      .then(data => setFollowing(data.status));
+      .then(data => setFollowing({status: data.status, id: data.id}));
   }, [id, user]);
 
+  useEffect(() => {
+    console.log(following);
+  }, [following]);
+
   const handleFollow = () => {
-    
+    if(following.status) {
+      fetch(`/likes/${following.id}`, {method: 'DELETE'})
+        .then(data => {
+          setFollowing({status: false, id: null});
+          setUserFollows(old => old -= 1);
+        });
+    } else {
+      const data = {
+        like: {
+          id,
+          liker_id: user.id,
+          type: 'User'
+        }
+      }
+
+      fetch('/likes', {
+        method: 'POST',
+        headers: new Headers({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }),
+        body: JSON.stringify(data)
+      })
+        .then(data => data.json())
+        .then(data => {
+          setFollowing({status: true, id: data.id})
+          setUserFollows(old => old += 1);
+        });
+    }
   };
 
   return(
@@ -54,10 +86,10 @@ const UserProfile = (props) => {
         <div className="card container mt-2 p-4">
           <div style={{display: "flex", justifyContent:"center", alignItems:"center"}}>
             <div>
-              {following ? 
-                <BsHeartFill style={{fontSize: 60, cursor:"pointer"}} className="mt-2" />
+              {following.status ? 
+                <BsHeartFill style={{fontSize: 60, cursor:"pointer"}} className="mt-2" onClick={handleFollow} />
               :
-                <BsHeart style={{fontSize: 60, cursor:"pointer"}} className="mt-2" />
+                <BsHeart style={{fontSize: 60, cursor:"pointer"}} className="mt-2" onClick={handleFollow} />
               }
               <h6 className="m-0 ms-4">{profUserFollows}</h6>
             </div>

@@ -8,9 +8,14 @@ class LikesController < ApplicationController
     if params[:like][:type] == 'Song'
       song_fetch = Song.find(params[:like][:id])
       @poly = Like.new(likeable: song_fetch, liker_id: params[:like][:liker_id])
+
     elsif params[:like][:type] == 'Comment'
       comment_fetch = Comment.find(params[:like][:id])
       @poly = Like.new(likeable: comment_fetch, liker_id: params[:like][:liker_id])
+
+    elsif params[:like][:type] == 'User'
+      user_fetch = User.find(params[:like][:id])
+      @poly = Like.new(likeable: user_fetch, liker_id: params[:like][:liker_id]) # Could have used a switch statement but i thought it was unnecessary
     end
 
     if @poly.save 
