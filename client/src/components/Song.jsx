@@ -7,6 +7,7 @@ import UserContext from "./UserContext";
 
 const Song = (props) => {
   const { user } = useContext(UserContext); 
+  // const songLink = URL.createObjectURL();
 
   const handleDelete = () => {
     fetch(`/songs/${props.song.id}`, {
@@ -23,8 +24,8 @@ const Song = (props) => {
           <SongInfo song={props.song} title={props.song.title} user={props.song.user} currUser={user} likes={props.song.likes} 
             setLoading={props.setLoading} />
         </div>
-        <audio controls style={{width: 650}}> 
-          <source src={props.song.media} /> 
+        <audio controls style={{width: 650}} controlsList="nodownload"> 
+          <source src={props.song.media} type="audio/mp3" /> 
         </audio>
 
         { user.id === props.song.user.id ? 
