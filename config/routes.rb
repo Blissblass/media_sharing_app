@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/home_feed', to: 'songs#fetch_home_feed'
     get '/song_query', to: 'songs#song_query'
     get '/fetch_user/:id', to: 'users#fetch_user_profile'
+    post '/already_following', to: 'users#already_following'
   end
   
 end

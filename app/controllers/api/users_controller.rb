@@ -19,7 +19,20 @@ class Api::UsersController < ApplicationController
       )
     end
 
-    render json: { user: @user, likes: @liked_songs, songs: @songs }
+    render json: { user: @user, likes: @liked_songs, songs: @songs, follows: @user.follows.count }
+  end
+
+  def follow_user 
+  end
+
+  def already_following
+    @follow = Like.where(likeable_type: 'User', likeable_id: params[:followee_id], liker_id: params[:follower_id])
+
+    if @follow.exists?
+      render json: {status: true} 
+    else
+      render json: {status: false}
+    end
   end
 
 end
