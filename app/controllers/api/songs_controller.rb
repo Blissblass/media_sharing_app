@@ -20,7 +20,7 @@ class Api::SongsController < ApplicationController
   end
 
   def song_query
-    return fetch_home_feed if params[:query].length < 3
+    return fetch_home_feed if params[:query].length < 2
 
     songs_fetch = Song.where("title LIKE ?", "%#{params[:query]}%").with_attached_media.includes(:user).order(created_at: :desc)
     @songs = songs_fetch.map do |song|
