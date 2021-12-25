@@ -3,17 +3,19 @@ import Song from './Song';
 import { Stack, Spinner } from 'react-bootstrap';
 
 const Feed = (props) => {
-  
+  const { setSongs, setLoading } = props;
+
   useLayoutEffect(() => {
     const fetchData = async () => { 
       fetch('/api/home_feed')
         .then(data => data.json())
         .then(data => {
-          props.setSongs(data);
+          setSongs(data);
+          setLoading(false);
         });
     }
     fetchData();
-  }, []);
+  }, [setSongs, setLoading]);
 
   return(
     <div className="mt-3">
