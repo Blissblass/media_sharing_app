@@ -31,7 +31,7 @@ I also initially had a tough time figuring out how the Like relation would work 
 
 # Screenshots
 
-![User page on sound.io](https://imgur.com/VXIpM5U)
+![User page on sound.io](https://i.imgur.com/VXIpM5U.png)
 
 ![Sign up page on sound.io](https://i.imgur.com/VzSW620.png)
 
