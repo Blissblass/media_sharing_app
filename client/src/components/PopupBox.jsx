@@ -43,7 +43,7 @@ const PopupBox = (props) => {
     formData.append('song[user_id]', user.id );
     formData.append('song[title]', title);
 
-    fetch("/songs", {
+    fetch("https://sound-io-backend.herokuapp.com/songs", {
       method: 'POST',
       body: formData 
     })

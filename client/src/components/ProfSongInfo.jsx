@@ -9,7 +9,7 @@ const SongInfo = (props) => {
 
   useEffect(() => {
     const fetchLiked = async () => { 
-        fetch('/api/already_liked', {
+        fetch('https://sound-io-backend.herokuapp.com/api/already_liked', {
         method: 'POST',      
         headers: new Headers({
           'Content-Type': 'application/json',
@@ -42,13 +42,13 @@ const SongInfo = (props) => {
 
     if(liked) {
 
-      fetch(`/likes/${likeData.id}`, {
+      fetch(`https://sound-io-backend.herokuapp.com/likes/${likeData.id}`, {
         method: 'DELETE'
       })
       setLiked(false);
       setLikes(old => old -= 1);
     } else {
-      fetch('/likes', {
+      fetch('https://sound-io-backend.herokuapp.com/likes', {
         method: 'POST',      
         headers: new Headers({
           'Content-Type': 'application/json',

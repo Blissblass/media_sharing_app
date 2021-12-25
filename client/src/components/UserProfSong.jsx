@@ -8,7 +8,7 @@ const UserProfSong = (props) => {
   const { user } = useContext(UserContext); 
 
   const handleDelete = () => {
-    fetch(`/songs/${props.song.id}`, {
+    fetch(`https://sound-io-backend.herokuapp.com/songs/${props.song.id}`, {
       method: 'DELETE'
     })
 

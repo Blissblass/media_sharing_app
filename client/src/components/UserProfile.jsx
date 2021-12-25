@@ -17,7 +17,7 @@ const UserProfile = (props) => {
   const [following, setFollowing] = useState({status: false, id: null});
 
   useEffect(() => {
-    fetch(`/api/fetch_user/${id}`)
+    fetch(`https://sound-io-backend.herokuapp.com/api/fetch_user/${id}`)
     .then(data => data.json())
     .then(data => {
       setProfUser(data.user);
@@ -27,7 +27,7 @@ const UserProfile = (props) => {
       setLoading(false);
     });
 
-    fetch('/api/already_following', {
+    fetch('https://sound-io-backend.herokuapp.com/api/already_following', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const UserProfile = (props) => {
 
   const handleFollow = () => {
     if(following.status) {
-      fetch(`/likes/${following.id}`, {method: 'DELETE'})
+      fetch(`https://sound-io-backend.herokuapp.com/likes/${following.id}`, {method: 'DELETE'})
         .then(data => {
           setFollowing({status: false, id: null});
           setUserFollows(old => old -= 1);
@@ -59,7 +59,7 @@ const UserProfile = (props) => {
         }
       }
 
-      fetch('/likes', {
+      fetch('https://sound-io-backend.herokuapp.com/likes', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',

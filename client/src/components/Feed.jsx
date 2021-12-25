@@ -7,7 +7,7 @@ const Feed = (props) => {
 
   useLayoutEffect(() => {
     const fetchData = async () => { 
-      fetch('/api/home_feed')
+      fetch('https://sound-io-backend.herokuapp.com/api/home_feed')
         .then(data => data.json())
         .then(data => {
           setSongs(data);

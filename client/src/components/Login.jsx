@@ -19,7 +19,7 @@ const Login = (props) => {
       }
     }
 
-    fetch('/users/sign_in', { 
+    fetch('https://sound-io-backend.herokuapp.com/users/sign_in', { 
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',

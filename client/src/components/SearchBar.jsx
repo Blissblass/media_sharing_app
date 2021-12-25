@@ -8,11 +8,11 @@ const SearchBar = (props) => {
 
   useEffect(() => {
     if(queryStr.length) {
-      fetch(`/api/song_query/?query=${queryStr}`)
+      fetch(`https://sound-io-backend.herokuapp.com/api/song_query/?query=${queryStr}`)
         .then(data => data.json())
         .then(data => setSongs(data))
       } else {
-        fetch('/api/home_feed')
+        fetch('https://sound-io-backend.herokuapp.com/api/home_feed')
           .then(data => data.json())
           .then(data => {
             setSongs(data);

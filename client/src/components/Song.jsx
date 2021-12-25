@@ -10,7 +10,7 @@ const Song = (props) => {
   // const songLink = URL.createObjectURL();
 
   const handleDelete = () => {
-    fetch(`/songs/${props.song.id}`, {
+    fetch(`https://sound-io-backend.herokuapp.com/songs/${props.song.id}`, {
       method: 'DELETE'
     })
 
