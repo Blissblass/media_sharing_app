@@ -5,6 +5,7 @@ import UserContext from "./UserContext";
 const PopupBox = (props) => {
   const [file, setFile] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const { user } = useContext(UserContext);
 
   const handleClose = () => {
@@ -18,7 +19,8 @@ const PopupBox = (props) => {
 
   const handleFile = (e) => {
     const inputFile = e.currentTarget.files[0];
-    if(inputFile === null) return;
+    console.log(inputFile);
+    if(!inputFile) return;
 
     const inputType = inputFile.type.split("/")[0];
     if(inputType === 'audio') {
@@ -31,6 +33,8 @@ const PopupBox = (props) => {
   const handleSubmit = (e) =>  {
     if (!file || !user) return;
     e.preventDefault();
+    setUploading(true);
+
     const title = e.currentTarget[0].value;
     const mediaLink = URL.createObjectURL(file);
 
@@ -81,9 +85,16 @@ const PopupBox = (props) => {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button type="submit" variant="primary" form="songForm" >
-          Upload
-        </Button>
+        {
+          uploading ? 
+            <Button type="submit" variant="primary" disabled>
+              Uploading...  
+            </Button>
+          :
+            <Button type="submit" variant="primary" form="songForm" >
+              Upload
+            </Button>
+        }
       </Modal.Footer>
 
   </Modal>
