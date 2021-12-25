@@ -22,7 +22,6 @@ const SongInfo = (props) => {
         if(data.length > 0) {
           setLiked(true);
           setLikeData(data[0]);
-          console.log(data);
         }
         props.setLoading(false);
       });

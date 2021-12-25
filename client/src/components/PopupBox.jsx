@@ -19,7 +19,6 @@ const PopupBox = (props) => {
 
   const handleFile = (e) => {
     const inputFile = e.currentTarget.files[0];
-    console.log(inputFile);
     if(!inputFile) return;
 
     const inputType = inputFile.type.split("/")[0];

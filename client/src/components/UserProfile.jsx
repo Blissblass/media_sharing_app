@@ -40,7 +40,6 @@ const UserProfile = (props) => {
   }, [id, user]);
 
   useEffect(() => {
-    console.log(following);
   }, [following]);
 
   const handleFollow = () => {
