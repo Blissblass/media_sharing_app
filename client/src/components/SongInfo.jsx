@@ -6,6 +6,7 @@ const SongInfo = (props) => {
   const [likes, setLikes] = useState(props.likes);
   const [liked, setLiked] = useState(false);
   const [likeData, setLikeData] = useState(null);
+  const { setLoading, song, currUser } = props;
 
   useEffect(() => {
     const fetchLiked = async () => { 
@@ -15,21 +16,20 @@ const SongInfo = (props) => {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         }),
-        body: JSON.stringify({id: props.song.id, liker_id: props.currUser.id})
+        body: JSON.stringify({id: song.id, liker_id: currUser.id})
       })      
       .then(data => data.json())
       .then(data => {
         if(data.length > 0) {
           setLiked(true);
           setLikeData(data[0]);
-          console.log(data);
         }
-        props.setLoading(false);
+        setLoading(false);
       });
     }
 
     fetchLiked()
-  }, []);
+  }, [setLoading, currUser.id, song.id]);
   
   const handleLike = () => {
     const data = {
