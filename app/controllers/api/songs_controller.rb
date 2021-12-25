@@ -5,7 +5,7 @@ class Api::SongsController < ApplicationController
 
     @songs = songs_fetch.map do |song|
       song.attributes.merge(
-        'media' => rails_blob_path(song.media, disposition: 'attachment'),
+        'media' => url_for(song.media),
         'user' => song.user,
         'likes' => song.likes.count
       )

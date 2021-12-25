@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
 
     @liked_songs = @user.liked_songs.map do |song|
       song.attributes.merge(
-        'media' => rails_blob_path(song.media, disposition: 'attachment'), 
+        'media' => url_for(song.media), 
         'user' => song.user,
         'likes' => song.likes.count
       )
@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
 
     @songs = @user.songs.map do |song|
       song.attributes.merge(
-        'media' => rails_blob_path(song.media, disposition: 'attachment'), 
+        'media' => url_for(song.media), 
         'user' => song.user,
         'likes' => song.likes.count
       )

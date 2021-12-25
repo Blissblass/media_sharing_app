@@ -7,7 +7,6 @@ import UserContext from "./UserContext";
 
 const Song = (props) => {
   const { user } = useContext(UserContext); 
-  // const songLink = URL.createObjectURL();
 
   const handleDelete = () => {
     fetch(`https://sound-io-backend.herokuapp.com/songs/${props.song.id}`, {
