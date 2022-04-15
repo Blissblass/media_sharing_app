@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "http://blissblass.github.io/media_sharing_app",
+  "homepage": "http://erayalkis.github.io/media_sharing_app",
   "version": "0.1.0",
   "private": true,
   "proxy": "https://sound-io-backend.herokuapp.com",
@@ -19,7 +19,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
-  "scripts": {  
+  "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
