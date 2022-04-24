@@ -4,7 +4,7 @@
 
 ![Sound.io home screen](https://i.imgur.com/zIjgWvw.png)
 
-Sound.io is my second fullstack React app and also my second solution to App Academy's **Full Stack Course**. My goal was to create an application where **User**s (implemented through the Devise gem) can share and **Like** **Song**s. My main focus on this project was to create an app that uses efficient active storage queries and expresses the actions to the user through an interactive UI.
+Sound.io is a personal project with a goal was to create an application where **User**s (implemented through the Devise gem) can share and **Like** **Song**s. My main focus on this project was to create an app that uses efficient SQL queries and expresses the actions to the user through an interactive UI.
 
 # Challenges
 
