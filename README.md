@@ -4,7 +4,9 @@
 
 ![Sound.io home screen](https://i.imgur.com/zIjgWvw.png)
 
-Sound.io is a personal project with a goal was to create an application where **User**s (implemented through the Devise gem) can share and **Like** **Song**s. My main focus on this project was to create an app that uses efficient SQL queries and expresses the actions to the user through an interactive UI.
+[Check out the demo here](https://erayalkis.github.io/media_sharing_app)
+
+Sound.io is a personal project with a goal to create an application where **User**s (implemented through the Devise gem) can share and **Like** **Song**s. My main focus on this project was to create an app that uses efficient SQL queries and expresses the actions to the user through an interactive UI.
 
 # Challenges
 
